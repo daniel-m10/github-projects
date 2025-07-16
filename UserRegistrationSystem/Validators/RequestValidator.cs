@@ -4,8 +4,19 @@ using UserRegistrationSystem.Services;
 
 namespace UserRegistrationSystem.Validators
 {
+    /// <summary>
+    /// Provides validation logic for user registration requests.
+    /// </summary>
     public class RequestValidator : IRequestValidator
     {
+        /// <summary>
+        /// Validates the specified <see cref="RegisterUserRequest"/> against business rules and existing users.
+        /// </summary>
+        /// <param name="request">The registration request to validate.</param>
+        /// <param name="existingUsers">A collection of existing users to check for duplicates.</param>
+        /// <returns>
+        /// A <see cref="Notification"/> containing any validation errors found.
+        /// </returns>
         public Notification Validate(RegisterUserRequest request, IEnumerable<User> existingUsers)
         {
             var notification = new Notification();

@@ -27,7 +27,7 @@ namespace UserRegistrationSystem.Tests.Services
         /// Verifies that registration fails when the user's name is empty.
         /// </summary>
         [Test]
-        public void RegisterUser_ShouldFail_WhenNameIsEmpt()
+        public void RegisterUser_ShouldFail_WhenNameIsEmpty()
         {
             // Arrange
             var repository = new JsonUserRepository();

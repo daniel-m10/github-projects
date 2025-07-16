@@ -30,12 +30,12 @@ namespace UserRegistrationSystem.Validators
             {
                 notification.AddError("Email cannot be empty.");
             }
-            else if (existingUsers.Select(u => u.Email).Contains(request.Email))
+            else if (existingUsers.Any(u => u.Email == request.Email))
             {
                 notification.AddError("Email already exists.");
             }
 
-            if (request.Password.Length < 8)
+            if (request.Password is not null && request.Password.Length < 8)
             {
                 notification.AddError("Password must be at least 8 characters.");
             }

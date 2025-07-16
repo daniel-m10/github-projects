@@ -29,7 +29,15 @@ namespace UserRegistrationSystem.Repositories
 
             var content = File.ReadAllText(FilePath);
 
-            return JsonSerializer.Deserialize<List<User>>(content) ?? [];
+            try
+            {
+                return JsonSerializer.Deserialize<List<User>>(content) ?? [];
+            }
+            catch (JsonException)
+            {
+                // If deserialization fails, return an empty collection
+                return [];
+            }
         }
 
         /// <summary>
